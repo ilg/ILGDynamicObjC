@@ -1,0 +1,18 @@
+PODS:
+  - ILGDynamicObjC (0.1.0):
+    - ILGDynamicObjC/ILGClasses
+    - ILGDynamicObjC/ILGSwizzler
+  - ILGDynamicObjC/ILGClasses (0.1.0)
+  - ILGDynamicObjC/ILGSwizzler (0.1.0)
+
+DEPENDENCIES:
+  - ILGDynamicObjC (from `../`)
+
+EXTERNAL SOURCES:
+  ILGDynamicObjC:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ILGDynamicObjC: e6a302e94391397021bccd5b59c18949eefda2bf
+
+COCOAPODS: 0.34.4
