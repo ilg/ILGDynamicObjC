@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'ILGDynamicObjC_Example', :exclusive => true do
+  pod "ILGDynamicObjC", :path => "../"
+end
+
+target 'ILGDynamicObjC_Tests', :exclusive => true do
+  pod "ILGDynamicObjC", :path => "../"
+
+  
+end
