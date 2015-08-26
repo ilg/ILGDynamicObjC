@@ -12,7 +12,7 @@
 
 @implementation ILGClasses
 
-+ (NSArray *)classesPassingTest:(ILGClassesClassTestBlock)test
++ (NSSet *)classesPassingTest:(ILGClassesClassTestBlock)test
 {
     
     int numClasses;
@@ -20,19 +20,19 @@
     
     numClasses = objc_getClassList(NULL, 0);
     if (!numClasses) {
-        return @[];
+        return [NSSet set];
     }
     
     classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
     numClasses = objc_getClassList(classes, numClasses);
     
     if (!test) {
-        NSArray *result = [NSArray arrayWithObjects:classes count:numClasses];
+        NSSet *result = [NSSet setWithObjects:classes count:numClasses];
         free(classes);
         return result;
     }
     
-    NSMutableArray *passingClasses = [NSMutableArray array];
+    NSMutableSet *passingClasses = [NSMutableSet set];
     for (int index = 0; index < numClasses; index++) {
         Class class = classes[index];
         if (test(class)) {
@@ -43,7 +43,7 @@
     return [passingClasses copy];
 }
 
-+ (NSArray *)subclassesOfClass:(Class)superclass
++ (NSSet *)subclassesOfClass:(Class)superclass
 {
     return [self classesPassingTest:^BOOL(Class class) {
         // Start with the given class...
@@ -64,7 +64,7 @@
     }];
 }
 
-+ (NSArray *)classesConformingToProtocol:(Protocol *)protocol
++ (NSSet *)classesConformingToProtocol:(Protocol *)protocol
 {
     return [self classesPassingTest:^BOOL(Class class) {
         return class_conformsToProtocol(class, protocol);
