@@ -1,6 +1,6 @@
 # ILGDynamicObjC
 
-[![CI Status](http://img.shields.io/travis/Isaac Greenspan/ILGDynamicObjC.svg?style=flat)](https://travis-ci.org/Isaac Greenspan/ILGDynamicObjC)
+[![CI Status](http://img.shields.io/travis/ilg/ILGDynamicObjC.svg?style=flat)](https://travis-ci.org/ilg/ILGDynamicObjC)
 [![Version](https://img.shields.io/cocoapods/v/ILGDynamicObjC.svg?style=flat)](http://cocoapods.org/pods/ILGDynamicObjC)
 [![License](https://img.shields.io/cocoapods/l/ILGDynamicObjC.svg?style=flat)](http://cocoapods.org/pods/ILGDynamicObjC)
 [![Platform](https://img.shields.io/cocoapods/p/ILGDynamicObjC.svg?style=flat)](http://cocoapods.org/pods/ILGDynamicObjC)
