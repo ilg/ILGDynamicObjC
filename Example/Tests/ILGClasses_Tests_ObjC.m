@@ -27,7 +27,20 @@
 
 #pragma mark - Generic passing test tests
 
-
+- (void)testNonIncludedTestWorks
+{
+    NSSet *expectedClasses = [NSSet setWithArray:@[
+                                                   [ILGChildClass1 class],
+                                                   [ILGGrandchildClass1 class],
+                                                   ]];
+    
+    NSSet *retrievedClasses = [ILGClasses classesPassingTest:^BOOL(Class class) {
+        NSString *className = NSStringFromClass(class);
+        return [className containsString:@"Class1"];
+    }];
+    
+    XCTAssertEqualObjects(expectedClasses, retrievedClasses);
+}
 
 #pragma mark - Subclass tests
 
