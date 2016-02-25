@@ -77,12 +77,12 @@
                                                       [ILGChildClass1 class],
                                                       [ILGChildClass2 class],
                                                       [ILGChildClass3 class],
+                                                      [ILGGrandchildClass1 class],
                                                       ]];
 
     NSSet *retrievedClasses = [ILGClasses classesConformingToProtocol:@protocol(ILGParentProtocol)];
     
     XCTAssertEqualObjects(expectedProtocolConformingClasses, retrievedClasses);
-    
 }
 
 @end

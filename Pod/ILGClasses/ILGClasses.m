@@ -66,9 +66,20 @@
 
 + (NSSet *)classesConformingToProtocol:(Protocol *)protocol
 {
-    return [self classesPassingTest:^BOOL(Class class) {
+    NSSet *superclassesConforming = [self classesPassingTest:^BOOL(Class class) {
         return class_conformsToProtocol(class, protocol);
     }];
+    
+    NSMutableSet *subclasses = [NSMutableSet set];
+    
+    for (Class superclass in superclassesConforming) {
+        NSSet *subclassesOfSuper = [self subclassesOfClass:superclass];
+        [subclasses addObjectsFromArray:[subclassesOfSuper allObjects]];
+    }
+    
+    NSSet *allConforming = [superclassesConforming setByAddingObjectsFromSet:subclasses];
+    
+    return allConforming;
 }
 
 @end

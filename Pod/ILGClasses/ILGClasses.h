@@ -29,7 +29,7 @@ typedef BOOL(^ILGClassesClassTestBlock)(__strong Class class);
  *
  *  @param superclass The superclass to look for
  *
- *  @return A set of all of the subclasses of the given class
+ *  @return A set of all of the subclasses of the given class, including indirect subclasses.
  */
 + (NSSet *)subclassesOfClass:(Class)superclass;
 
@@ -38,7 +38,7 @@ typedef BOOL(^ILGClassesClassTestBlock)(__strong Class class);
  *
  *  @param protocol The protocol to look for
  *
- *  @return A set of all of the classes that conform to the given protocol.
+ *  @return A set of all of the classes that conform to the given protocol, as well as their direct and indirect subclasses.
  */
 + (NSSet *)classesConformingToProtocol:(Protocol *)protocol;
 
