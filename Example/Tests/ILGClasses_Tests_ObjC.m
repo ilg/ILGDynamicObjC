@@ -59,7 +59,17 @@
 
 #pragma mark - Protocol Tests
 
-- (void)testParentClassConformingToProtocolMakesChildClassesReturned
+- (void)testGettingClassesConformingToProtocol
+{
+    NSSet *expectedProtocolConformingClasses = [NSSet setWithArray:@[
+                                                                     [ILGAppDelegate class]
+                                                                     ]];
+    NSSet *retrievedClasses = [ILGClasses classesConformingToProtocol:@protocol(UIApplicationDelegate)];
+    
+    XCTAssertEqualObjects(expectedProtocolConformingClasses, retrievedClasses);
+}
+
+- (void)testParentClassConformingToProtocolMakesChildAndGrandchildClassesReturned
 {
     
     NSSet *expectedProtocolConformingClasses = [NSSet setWithArray:@[
