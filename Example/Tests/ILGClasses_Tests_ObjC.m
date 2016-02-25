@@ -17,6 +17,7 @@
 #import "ILGChildClass1.h"
 #import "ILGChildClass2.h"
 #import "ILGChildClass3.h"
+#import "ILGGrandchildClass1.h"
 
 @interface ILGClasses_Tests_ObjC : XCTestCase
 
@@ -36,11 +37,11 @@
                                                       [ILGChildClass1 class],
                                                       [ILGChildClass2 class],
                                                       [ILGChildClass3 class],
+                                                      [ILGGrandchildClass1 class],
                                                       ]];
     NSSet *retrievedSubclasses = [ILGClasses subclassesOfClass:[ILGParentClass class]];
     
     XCTAssertEqualObjects(retrievedSubclasses, expectedSubclasses);
-
 }
 
 #pragma mark - Protocol Tests
