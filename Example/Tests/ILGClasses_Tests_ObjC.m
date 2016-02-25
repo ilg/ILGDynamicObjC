@@ -8,32 +8,57 @@
 
 #import <XCTest/XCTest.h>
 
+#import "ILGClasses.h"
+
+#import "ILGAppDelegate.h"
+#import "ILGViewController.h"
+#import "ILGParentProtocol.h"
+#import "ILGParentClass.h"
+#import "ILGChildClass1.h"
+#import "ILGChildClass2.h"
+#import "ILGChildClass3.h"
+
 @interface ILGClasses_Tests_ObjC : XCTestCase
 
 @end
 
 @implementation ILGClasses_Tests_ObjC
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+#pragma mark - Generic passing test tests
+
+
+
+#pragma mark - Subclass tests
+
+- (void)testGettingSubclassesOfCustomClass
+{
+    NSSet *expectedSubclasses = [NSSet setWithArray:@[
+                                                      [ILGChildClass1 class],
+                                                      [ILGChildClass2 class],
+                                                      [ILGChildClass3 class],
+                                                      ]];
+    NSSet *retrievedSubclasses = [ILGClasses subclassesOfClass:[ILGParentClass class]];
+    
+    XCTAssertEqualObjects(retrievedSubclasses, expectedSubclasses);
+
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
+#pragma mark - Protocol Tests
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
+- (void)testParentClassConformingToProtocolMakesChildClassesReturned
+{
+    
+    NSSet *expectedProtocolConformingClasses = [NSSet setWithArray:@[
+                                                      [ILGParentClass class],
+                                                      [ILGChildClass1 class],
+                                                      [ILGChildClass2 class],
+                                                      [ILGChildClass3 class],
+                                                      ]];
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+    NSSet *retrievedClasses = [ILGClasses classesConformingToProtocol:@protocol(ILGParentProtocol)];
+    
+    XCTAssertEqualObjects(expectedProtocolConformingClasses, retrievedClasses);
+    
 }
 
 @end

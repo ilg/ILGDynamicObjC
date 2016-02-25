@@ -24,6 +24,10 @@
 		71D1C62C1B38CB0800BC6681 /* ILGSwizzler_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D1C62B1B38CB0800BC6681 /* ILGSwizzler_Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9BB707001C7FAFD9002BD5E5 /* ILGClasses_Tests_ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB706FF1C7FAFD9002BD5E5 /* ILGClasses_Tests_ObjC.m */; };
+		9BB707031C7FB10E002BD5E5 /* ILGParentClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB707021C7FB10E002BD5E5 /* ILGParentClass.m */; };
+		9BB707061C7FB11D002BD5E5 /* ILGChildClass1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB707051C7FB11D002BD5E5 /* ILGChildClass1.m */; };
+		9BB707091C7FB12B002BD5E5 /* ILGChildClass2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB707081C7FB12B002BD5E5 /* ILGChildClass2.m */; };
+		9BB7070C1C7FB162002BD5E5 /* ILGChildClass3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7070B1C7FB162002BD5E5 /* ILGChildClass3.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,15 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9327D1E0750D6CF899B3BC14 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9BB706FF1C7FAFD9002BD5E5 /* ILGClasses_Tests_ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILGClasses_Tests_ObjC.m; sourceTree = "<group>"; };
+		9BB707011C7FB10E002BD5E5 /* ILGParentClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILGParentClass.h; sourceTree = "<group>"; };
+		9BB707021C7FB10E002BD5E5 /* ILGParentClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILGParentClass.m; sourceTree = "<group>"; };
+		9BB707041C7FB11D002BD5E5 /* ILGChildClass1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILGChildClass1.h; sourceTree = "<group>"; };
+		9BB707051C7FB11D002BD5E5 /* ILGChildClass1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILGChildClass1.m; sourceTree = "<group>"; };
+		9BB707071C7FB12B002BD5E5 /* ILGChildClass2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILGChildClass2.h; sourceTree = "<group>"; };
+		9BB707081C7FB12B002BD5E5 /* ILGChildClass2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILGChildClass2.m; sourceTree = "<group>"; };
+		9BB7070A1C7FB162002BD5E5 /* ILGChildClass3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILGChildClass3.h; sourceTree = "<group>"; };
+		9BB7070B1C7FB162002BD5E5 /* ILGChildClass3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILGChildClass3.m; sourceTree = "<group>"; };
+		9BB7070D1C7FB191002BD5E5 /* ILGParentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILGParentProtocol.h; sourceTree = "<group>"; };
 		A79C743A92A69AEC41E90ACE /* Pods-ILGDynamicObjC_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ILGDynamicObjC_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ILGDynamicObjC_Tests/Pods-ILGDynamicObjC_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		ED59F784ABB629E90C4D90FE /* Pods-ILGDynamicObjC_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ILGDynamicObjC_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ILGDynamicObjC_Example/Pods-ILGDynamicObjC_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F605838DD7F22B896C5AE486 /* ILGDynamicObjC.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ILGDynamicObjC.podspec; path = ../ILGDynamicObjC.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -150,6 +163,15 @@
 				6003F5A6195388D20070C39A /* ILGViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				9BB707011C7FB10E002BD5E5 /* ILGParentClass.h */,
+				9BB707021C7FB10E002BD5E5 /* ILGParentClass.m */,
+				9BB7070D1C7FB191002BD5E5 /* ILGParentProtocol.h */,
+				9BB707041C7FB11D002BD5E5 /* ILGChildClass1.h */,
+				9BB707051C7FB11D002BD5E5 /* ILGChildClass1.m */,
+				9BB707071C7FB12B002BD5E5 /* ILGChildClass2.h */,
+				9BB707081C7FB12B002BD5E5 /* ILGChildClass2.m */,
+				9BB7070A1C7FB162002BD5E5 /* ILGChildClass3.h */,
+				9BB7070B1C7FB162002BD5E5 /* ILGChildClass3.m */,
 			);
 			name = "Example for ILGDynamicObjC";
 			path = ILGDynamicObjC;
@@ -170,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				71D1C62B1B38CB0800BC6681 /* ILGSwizzler_Tests.m */,
-				6003F5B6195388D20070C39A /* Supporting Files */,
 				9BB706FF1C7FAFD9002BD5E5 /* ILGClasses_Tests_ObjC.m */,
+				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -393,9 +415,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB7070C1C7FB162002BD5E5 /* ILGChildClass3.m in Sources */,
 				6003F59E195388D20070C39A /* ILGAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ILGViewController.m in Sources */,
+				9BB707061C7FB11D002BD5E5 /* ILGChildClass1.m in Sources */,
+				9BB707091C7FB12B002BD5E5 /* ILGChildClass2.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				9BB707031C7FB10E002BD5E5 /* ILGParentClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
