@@ -1,6 +1,6 @@
 {
   "name": "ILGDynamicObjC",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "summary": "Helpers for using Objective-C's dynamic runtime features.",
   "homepage": "https://github.com/ilg/ILGDynamicObjC",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/ilg/ILGDynamicObjC.git",
-    "tag": "0.1.1"
+    "tag": "0.2.0"
   },
   "requires_arc": true,
   "subspecs": [
