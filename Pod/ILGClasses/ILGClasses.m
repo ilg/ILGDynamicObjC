@@ -12,9 +12,10 @@
 
 @implementation ILGClasses
 
+#pragma mark - Test helpers
+
 + (NSSet *)classesPassingTest:(ILGClassesClassTestBlock)test
 {
-    
     int numClasses;
     Class *classes = NULL;
     
@@ -43,43 +44,60 @@
     return [passingClasses copy];
 }
 
++ (BOOL)doAnySuperclassesOfClass:(Class)class passTest:(ILGClassesClassTestBlock)test
+{
+    // Start with the given class...
+    Class workingClass = class;
+    
+    // Otherwise, walk up the superclass chain until we get Nil or the superclass
+    // passes the test.
+    do {
+        workingClass = class_getSuperclass(workingClass);
+    } while (workingClass && !test(workingClass));
+    
+    // If we got Nil, we went all the way up and nothing passed the test.
+    if (!workingClass) {
+        return NO;
+    }
+    
+    // Otherwise, one of the tests passed, yay!.
+    return YES;
+}
+
++ (BOOL)class:(Class)classToCheck orAnyOfItsSuperclassesPassesTest:(ILGClassesClassTestBlock)test
+{
+    //Check the initial class against the test
+    if (test(classToCheck)) {
+        //If it passed, hooray! Return and bail.
+        return YES;
+    }
+    
+    // Otherwise, keep looking to see if any of the superclasses pass the test.
+    return [self doAnySuperclassesOfClass:classToCheck passTest:test];
+}
+
+#pragma mark - Convenience Methods
+
 + (NSSet *)subclassesOfClass:(Class)superclass
 {
     return [self classesPassingTest:^BOOL(Class class) {
-        // Start with the given class...
-        Class workingClass = class;
-        // ... and walk up the superclass chain until we get Nil or the superclass we're looking for.
-        do {
-            workingClass = class_getSuperclass(workingClass);
-        } while (workingClass && workingClass != superclass);
-        
-        // If we got Nil, we went all the way up and didn't find the superclass we were looking for,
-        // so the given class doesn't inherit from the target superclass.
-        if (!workingClass) {
-            return NO;
-        }
-        
-        // Otherwise, the given class inherits from the target superclass.
-        return YES;
+        // Check to see if any superclasses of the class passed in...
+        return [self doAnySuperclassesOfClass:class passTest:^BOOL(Class workingClass) {
+            // are the superclass we're looking for.
+            return workingClass == superclass;
+        }];
     }];
 }
 
 + (NSSet *)classesConformingToProtocol:(Protocol *)protocol
 {
-    NSSet *superclassesConforming = [self classesPassingTest:^BOOL(Class class) {
-        return class_conformsToProtocol(class, protocol);
+    return [self classesPassingTest:^BOOL(Class class) {
+        // Check to see if the class or any of its superclasses...
+        return [self class:class orAnyOfItsSuperclassesPassesTest:^BOOL(Class workingClass) {
+            // Conform to the protocol we're looking for.
+            return class_conformsToProtocol(workingClass, protocol);
+        }];
     }];
-    
-    NSMutableSet *subclasses = [NSMutableSet set];
-    
-    for (Class superclass in superclassesConforming) {
-        NSSet *subclassesOfSuper = [self subclassesOfClass:superclass];
-        [subclasses addObjectsFromArray:[subclassesOfSuper allObjects]];
-    }
-    
-    NSSet *allConforming = [superclassesConforming setByAddingObjectsFromSet:subclasses];
-    
-    return allConforming;
 }
 
 @end
