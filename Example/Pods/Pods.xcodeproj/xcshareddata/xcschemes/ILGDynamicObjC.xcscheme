@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'ABD452D0640AEFA99A76EEE4'
+               BlueprintIdentifier = '159EFE58D822B1EF9BD1E778'
                BlueprintName = 'ILGDynamicObjC'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libILGDynamicObjC.a'>
