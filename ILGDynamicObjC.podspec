@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ILGDynamicObjC"
-  s.version          = "0.1.1"
+  s.version          = "0.2.0"
   s.summary          = "Helpers for using Objective-C's dynamic runtime features."
   s.homepage         = "https://github.com/ilg/ILGDynamicObjC"
   s.license          = 'MIT'
